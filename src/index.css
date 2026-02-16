@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --sidebar-width: 250px;
+  --navbar-height: 60px;
+}
+
+@utility w-sidebar_width {
+  width: var(--sidebar-width);
+}
+
+@utility h-navbar_height {
+  height: var(--navbar-height);
+}
+
+@utility pr-sidebar_width {
+  padding-right: var(--sidebar-width);
+}
+
+@utility pt-navbar_height {
+  padding-top: var(--navbar-height);
+}
