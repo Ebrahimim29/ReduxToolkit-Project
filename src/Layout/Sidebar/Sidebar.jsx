@@ -1,10 +1,10 @@
-const Sidebar = () => {
+const Sidebar = ({setPage}) => {
     
     const items = [
-        {title:"کاربران"},
-        {title:"گالری"},
-        {title:"نظرات"},
-        {title:"پست ها"}
+        {title:"کاربران", props:{onClick:()=>setPage("users")}},
+        {title:"گالری", props:{onClick:()=>setPage("gallery")}},
+        {title:"نظرات", props:{onClick:()=>setPage("comments")}},
+        {title:"پست ها", props:{onClick:()=>setPage("posts")}}
     ]
 
     return(
@@ -12,7 +12,7 @@ const Sidebar = () => {
             <div className="w-full p-4">
                 <ul>
                     {items.map((item,i)=>(
-                        <li key={"sidebarItem_"+i} className="my-4 cursor-pointer dark:hover:bg-gray-500 hover:bg-blue-100
+                        <li key={"sidebarItem_"+i} {...item.props} className="my-4 cursor-pointer dark:hover:bg-gray-500 hover:bg-blue-100
                          border border-blue-600 dark:border-white text-blue-600 dark:text-white px-2 py-1 rounded-md" >
                             {item.title}
                         </li>
